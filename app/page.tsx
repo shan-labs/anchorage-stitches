@@ -1,8 +1,11 @@
 import React from "react"
-import type { NextPage } from "next"
+import { ThemeToggle } from "components/theme-toggle"
 
-export const Page: NextPage = () => {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>
+export default function Page() {
+  return (
+    <>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <ThemeToggle />
+    </>
+  )
 }
-
-export default Page
