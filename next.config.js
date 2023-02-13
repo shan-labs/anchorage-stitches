@@ -4,9 +4,6 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  experimental: {
-    appDir: true,
-  },
 }
 
 const compose = (initial, fns) => fns.reduce((acc, fn) => fn(acc), initial)
