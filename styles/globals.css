@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root,
+  .light {
     --transparent: "transparent";
 
     --gray1: 0, 0%, 99%;
