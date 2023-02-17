@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
 
 @layer base {
   :root,
@@ -127,5 +128,20 @@
     --violet10: 251, 63.2%, 63.2%;
     --violet11: 250, 95%, 76.8%;
     --violet12: 252, 87%, 96.4%;
+  }
+
+  h2 {
+    @apply text-violet-8;
+
+    @screen md {
+      @apply text-violet-8;
+    }
+  }
+  .dark {
+    h2 {
+      @screen md {
+        @apply text-bluegray-6;
+      }
+    }
   }
 }
