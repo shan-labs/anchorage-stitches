@@ -131,17 +131,6 @@
   }
 
   h2 {
-    @apply text-violet-8;
-
-    @screen md {
-      @apply text-violet-8;
-    }
-  }
-  .dark {
-    h2 {
-      @screen md {
-        @apply text-bluegray-6;
-      }
-    }
+    @apply text-plum-8 md:text-violet-8 dark:md:text-bluegray-6;
   }
 }
