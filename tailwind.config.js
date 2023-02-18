@@ -1,6 +1,14 @@
-function hslaN(variableName, n, tokenName = undefined) {
+function hsla(variable) {
+  return `hsla(var(--${variable}), <alpha-value>)`
+}
+
+function hslaN({ variable, n, scale = 1 }) {
   return Array.from({ length: n }, (_, index) => index + 1).reduce((stored, num) => {
-    return { ...stored, [num]: `hsla(var(--${variableName}${num}), <alpha-value>)` }
+    const key = num * scale
+    return {
+      ...stored,
+      [key]: hsla(`${variable}${key}`),
+    }
   }, {})
 }
 
@@ -15,11 +23,50 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gray: hslaN("gray", 12),
-        mauve: hslaN("mauve", 12),
-        plum: hslaN("plum", 12),
-        violet: hslaN("violet", 12),
-        bluegray: hslaN("bluegray", 12),
+        gray: hslaN({ variable: "gray", n: 12 }),
+        mauve: hslaN({ variable: "mauve", n: 12 }),
+        plum: hslaN({ variable: "plum", n: 12 }),
+        violet: hslaN({ variable: "violet", n: 12 }),
+        bluegray: hslaN({ variable: "bluegray", n: 12 }),
+
+        theme: {
+          bg: hsla("bg"),
+          contentBg: hsla("content-bg"),
+          placeholder: hsla("placeholder"),
+        },
+
+        logo: {
+          fg: hsla("logo-fg"),
+          bg: hsla("logo-bg"),
+          border: hsla("logo-border"),
+        },
+        link: {
+          base: hsla("link"),
+          active: hsla("link-active"),
+          on: hsla("link-on"),
+        },
+        code: {
+          bg: hsla("code-bg"),
+          title: hsla("code-title"),
+          titleBg: hsla("title-bg"),
+          highlight: hsla("code-highlight"),
+          highlightLeft: hsla("code-highlight-left"),
+        },
+      },
+      zIndex: {
+        hide: -1,
+        auto: "auto",
+        base: 0,
+        docked: 10,
+        dropdown: 1000,
+        sticky: 1100,
+        banner: 1200,
+        overlay: 1300,
+        modal: 1400,
+        popover: 1500,
+        skipLink: 1600,
+        toast: 1700,
+        tooltip: 1800,
       },
     },
   },
